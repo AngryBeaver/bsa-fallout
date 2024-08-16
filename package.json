@@ -1,10 +1,10 @@
 {
 	"name": "bsa-fallout",
 	"title": "Beaver's System Adaption fallout",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Beaver's System Adaption fallout",
-	"#devDir": "D:\\Vtts\\v10\\Data\\modules",
-	"devDir": "D:\\Vtts\\v11\\Data\\modules",
+	"devDir": "c:\\vtts\\v12.323\\Data\\modules",
+	"#devDir": "c:\\vtts\\v11.315\\Data\\modules",
 	"main": "src/main.js",
 	"files": [
 		"src/types.ts"
