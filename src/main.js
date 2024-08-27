@@ -6,6 +6,8 @@ Hooks.on("beavers-system-interface.init", async function(){
     beaversSystemInterface.register(new Fallout());
 });
 
-Hooks.on("ready", async function(){
+Hooks.on("beavers-system-interface.ready", async function(){
     game["bsa-fallout"].Settings = new Settings();
+    game["bsa-fallout"].Settings.gatherSkills()
+      .then(()=>import("./SkillTest.js"));
 });

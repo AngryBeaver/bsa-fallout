@@ -6,7 +6,6 @@ export class Settings {
         if (!(game instanceof Game)) {
             throw new Error("Settings called before game has been initialized");
         }
-        void this.gatherSkills();
     }
 
     async gatherSkills(){

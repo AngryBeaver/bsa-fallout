@@ -2,7 +2,7 @@
     "title": "Beaver's System Adaption fallout",
     "description": "fallout implementation for Beaver's System Interface",
     "id": "bsa-fallout",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "authors": [
       {
         "name": "angryBeaver",
