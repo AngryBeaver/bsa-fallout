@@ -1,5 +1,5 @@
 
-class SkillTest implements TestClass<"skill"> {
+class SkillTest implements TestClass<"skill"|"complexity"> {
     public type:string =  "SkillTest"
     _choices:{[key:string]:{text:string, img?:string}} = {};
     constructor(){
@@ -8,7 +8,7 @@ class SkillTest implements TestClass<"skill"> {
             return object;
         }, {})
     }
-    public create(data:Record<"skill",any>){
+    public create(data:Record<"skill"|"complexity",any>){
         const result = new SkillTestCustomized();
         result.data = data;
         result.parent = this;
@@ -21,7 +21,7 @@ class SkillTest implements TestClass<"skill"> {
         note: game['i18n'].localize("beaversSystemInterface.tests.skillTest.info.note")
     }
 
-    get customizationFields(): Record<"skill",InputField>{
+    get customizationFields(): Record<"skill"|"complexity",InputField>{
         return {
             skill: {
                 name: "skill",
@@ -29,21 +29,28 @@ class SkillTest implements TestClass<"skill"> {
                 note: "Skill",
                 type: "selection",
                 choices: this._choices
+            },
+            complexity: {
+                name: "complexity",
+                label: "complexity",
+                note: "Complexity",
+                type: "number",
             }
         };
     }
 
 }
 
-class SkillTestCustomized implements Test<"skill"> {
+class SkillTestCustomized implements Test<"skill"|"complexity"> {
 
     parent: SkillTest
-    data:{skill:""}
+    data:{skill:"",complexity:1}
 
     public action = async (initiatorData: InitiatorData):Promise<TestResult> => {
         const actor = beaversSystemInterface.initiator(initiatorData).actor;
         const item = actor.items.find(i=>i.type==="skill" && i.name === this.data.skill);
         if(item){
+
             // @ts-ignore
             const result = await fallout.Dialog2d20.createDialog({
                 rollName: this.data.skill,
@@ -53,18 +60,22 @@ class SkillTestCustomized implements Test<"skill"> {
                 tag: item.system.tag,
                 complication: parseInt(actor.system.complication)
             });
-            let success = 0;
-            let fail = 0;
+            var neededSuccesses = Math.max(0,this.data.complexity-item.system.value);
+            let rolledSuccess = 0;
+            let rolledComplications = 0;
             result.dicesRolled.forEach(d=>{
-                success += d.success;
-                fail += d.complication
+                rolledSuccess += d.success;
+                rolledComplications += d.complication
             });
-            if(success == 0 && fail == 0){
-                fail=1;
+            if(neededSuccesses <= rolledSuccess){
+                return {
+                    success:1,
+                    fail: 0
+                }
             }
             return {
-                success:success,
-                fail: fail
+                success:0,
+                fail: 1
             }
         }else{
             // @ts-ignore
@@ -75,7 +86,7 @@ class SkillTestCustomized implements Test<"skill"> {
 
     public render = (): string => {
         const skill = this.parent._choices[this.data.skill]?.text||"process";
-        return `${skill}`;
+        return `${skill} vs ${this.data.complexity}`;
     };
 
 }

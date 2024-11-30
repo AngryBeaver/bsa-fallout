@@ -1,3 +1,9 @@
+# 3.0.0
+change SkillTest
+- adding a new data input complexity wich defaults to 1
+- change behaviour reduce complextiy of check by skill rank.
+- fail only if you do not have enough scucesses.
+- ignore complications for the result of the craftin.
 # 2.0.0
 add modular SkillTest
 - breaking !
