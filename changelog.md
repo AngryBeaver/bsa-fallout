@@ -1,4 +1,4 @@
-# 3.0.0
+# 2.0.1
 change SkillTest
 - adding a new data input complexity wich defaults to 1
 - change behaviour reduce complextiy of check by skill rank.
