@@ -1,0 +1,57 @@
+body {
+    --beavers-primary-color: rgb(238, 231, 135);
+    --beavers-primary-color-highlight:#eee;
+    --beavers-primary-bg-color: rgba(0, 0, 0, 0.3);
+    --beavers-primary-bg-color-highlight: rgba(0, 0, 0, 0.8);
+    --beavers-secondary-color: #eee;
+    --beavers-secondary-color-highlight: #444;
+
+    --beavers-color: #191813;
+    --beavers-color-highlight: #191813;
+    --beavers-border-color: #9c9a91;
+    --beavers-border-color-highlight: var(--beavers-primary-color-highlight);
+    --beavers-header-color: var(--beavers-secondary-color);
+    --beavers-header-color-highlight: var(--beavers-secondary-color-highlight);
+    --beavers-background-color: var( --beavers-primary-bg-color);
+    --beavers-background-color-highlight: var( --beavers-primary-bg-color-highlight);
+
+    --beavers-item-color: var(--beavers-primary-color);
+    --beavers-item-color-highlight: var(--beavers-primary-color);
+    --beavers-item-border-color: var(--beavers-border-color);
+    --beavers-item-border-color-highlight: var(--beavers-border-color-highlight);
+    --beavers-item-header-color: var(--beavers-header-color);
+    --beavers-item-header-color-highlight: var(--beavers-header-color-highlight);
+    --beavers-item-background-color: rgba(255, 255, 255, 0.1);
+    --beavers-item-background-color-highlight: rgba(255, 255, 255, 0.3);
+
+    --beavers-chat-color: var(--color-dark-4);
+    --beavers-chat-color-highlight: var(--color-dark-3);
+    --beavers-chat-border-color: var(--color-light-1);
+    --beavers-chat-border-color-highlight: #999;
+    --beavers-chat-header-color: var(--color-dark-2);
+    --beavers-chat-header-color-highlight: var(--color-dark-1);
+    --beavers-chat-background-color: rgba(0, 0, 0, 0.05);
+    --beavers-chat-background-color-highlight: rgba(0, 0, 0, 0.1);
+
+    --beavers-actor-color: var(--beavers-primary-color);
+    --beavers-actor-color-highlight: var(--beavers-primary-color);
+    --beavers-actor-border-color: var(--beavers-border-color);
+    --beavers-actor-border-color-highlight: var(--beavers-border-color-highlight);
+    --beavers-actor-header-color: var(--beavers-header-color);
+    --beavers-actor-header-color-highlight: var(--beavers-header-color-highlight);
+    --beavers-actor-background-color: rgba(0, 0, 0, 0.1);
+    --beavers-actor-background-color-highlight: rgba(0, 0, 0, 0.8);
+}
+body.game .beavers-crafting textarea{
+    background-color: rgba(0, 0, 0, 0.2);
+    height:100%;
+    color: var(--beavers-primary-color);
+}
+
+body.game .beavers-crafting textarea::placeholder {
+    color: var(--beavers-primary-color);
+    opacity: 0.5; /* Optional: Ensures the color has full intensity */
+}
+.beavers-crafting .window-header{
+    color: var(--color-text-light-highlight)
+}

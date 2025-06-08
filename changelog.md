@@ -1,3 +1,5 @@
+# 2.1.0
+- ad color scheme
 # 2.0.1
 change SkillTest
 - adding a new data input complexity wich defaults to 1
